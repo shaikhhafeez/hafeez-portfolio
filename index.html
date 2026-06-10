@@ -725,7 +725,18 @@
 
           <div class="contact-grid">
             <!-- Contact form -->
-            <form class="contact-form" id="contactForm" novalidate>
+            <form 
+  class="contact-form" 
+  id="contactForm" 
+  name="project-request" 
+  method="POST" 
+  data-netlify="true" 
+  netlify-honeypot="bot-field"
+>
+  <input type="hidden" name="form-name" value="project-request" />
+  <p style="display: none;">
+    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+  </p>
               <div class="field">
                 <label for="name" class="field-label">Your name</label>
                 <input
