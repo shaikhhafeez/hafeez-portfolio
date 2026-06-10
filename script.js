@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navbar = document.getElementById("navbar");
   const cursorGlow = document.querySelector(".cursor-glow");
   const contactForm = document.getElementById("contactForm");
+  const formSuccess = document.getElementById("formSuccess");
   const navLinks = document.querySelectorAll(".nav-links a");
   const sidebarLinks = document.querySelectorAll("[data-close-sidebar]");
   const sections = document.querySelectorAll("section[id]");
@@ -150,19 +151,66 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ===========================================================
-     CONTACT FORM — Netlify Forms submit support
-     IMPORTANT:
-     No e.preventDefault() here.
-     This allows Netlify to receive the form data.
+     CONTACT FORM — Netlify Forms AJAX submit
+     Page reload nahi hoga, data Netlify Forms main chala jayega
   =========================================================== */
 
   if (contactForm) {
-    contactForm.addEventListener("submit", () => {
+    contactForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
       const submitBtn = contactForm.querySelector("[type='submit']");
+      const originalText = submitBtn
+        ? submitBtn.textContent
+        : "Send Project Request";
 
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.textContent = "Sending…";
+      }
+
+      try {
+        const formData = new FormData(contactForm);
+
+        const response = await fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+          body: new URLSearchParams(formData).toString(),
+        });
+
+        if (!response.ok) {
+          throw new Error("Form submission failed");
+        }
+
+        if (formSuccess) {
+          formSuccess.classList.add("visible");
+          formSuccess.innerHTML =
+            "<span>✦</span> Thanks! Your request has been received. I'll be in touch soon.";
+        }
+
+        contactForm.reset();
+
+        setTimeout(() => {
+          if (formSuccess) formSuccess.classList.remove("visible");
+        }, 6000);
+      } catch (error) {
+        if (formSuccess) {
+          formSuccess.classList.add("visible");
+          formSuccess.innerHTML =
+            "<span>!</span> Something went wrong. Please try again or contact me on WhatsApp.";
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
       }
     });
   }
