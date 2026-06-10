@@ -2085,3 +2085,136 @@ body.no-gsap .gs-stagger > * {
     font-size: 16px;
   }
 }
+/* ============================================================
+   MOBILE FIX — AUTOMATION FLOW PREVIEW
+   Clean vertical timeline layout on mobile
+============================================================ */
+
+@media (max-width: 768px) {
+  .automation-preview-section {
+    padding: 18px 0 38px;
+  }
+
+  .automation-preview {
+    padding: 22px 18px;
+    border-radius: 26px;
+  }
+
+  .automation-preview-head {
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .automation-preview-head h2 {
+    font-size: 30px;
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+
+  .automation-preview-text {
+    margin-bottom: 22px;
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  .automation-live-badge {
+    padding: 10px 13px;
+    font-size: 12px;
+  }
+
+  .automation-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 18px;
+  }
+
+  .flow-line {
+    display: none !important;
+  }
+
+  .flow-card {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    column-gap: 14px;
+    align-items: start;
+    min-height: auto;
+    padding: 18px;
+    border-radius: 20px;
+    animation: none !important;
+  }
+
+  .flow-icon {
+    grid-row: span 3;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 0;
+    border-radius: 15px;
+    font-size: 13px;
+  }
+
+  .flow-icon::after {
+    display: none;
+  }
+
+  .flow-card span {
+    margin-bottom: 5px;
+    font-size: 11px;
+  }
+
+  .flow-card h3 {
+    margin-bottom: 6px;
+    font-size: 17px;
+  }
+
+  .flow-card p {
+    font-size: 13.5px;
+    line-height: 1.55;
+  }
+
+  .automation-mini-tags {
+    gap: 8px;
+    margin-top: 18px;
+  }
+
+  .automation-mini-tags span {
+    min-height: 34px;
+    padding: 8px 11px;
+    font-size: 12px;
+    animation: none !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .automation-preview {
+    padding: 20px 15px;
+  }
+
+  .automation-preview-head h2 {
+    font-size: 26px;
+  }
+
+  .automation-preview-text {
+    font-size: 14px;
+  }
+
+  .flow-card {
+    grid-template-columns: 42px 1fr;
+    column-gap: 12px;
+    padding: 15px;
+  }
+
+  .flow-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 13px;
+  }
+
+  .flow-card h3 {
+    font-size: 16px;
+  }
+
+  .automation-mini-tags span {
+    font-size: 11.5px;
+  }
+}
