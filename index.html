@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Hafeez — AI Automation Developer</title>
+
+    <!-- Google Fonts: Sora for headings, Inter for body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Main styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Typewriter animation styles for hero heading -->
+    <style>
+      .typewriter-wrapper {
+        display: block;
+        color: #7C3AED;
+        min-height: 1.05em;
+      }
+
+      .typewriter-cursor {
+        color: #7C3AED;
+        animation: typewriterBlink 0.8s infinite;
+        font-weight: 800;
+      }
+
+      @keyframes typewriterBlink {
+        0%, 50% {
+          opacity: 1;
+        }
+
+        51%, 100% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Cursor glow that follows the mouse — purely decorative ambient light -->
+    <div class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- Mobile sidebar overlay backdrop -->
+    <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+    <!-- ============================================================
+       MOBILE SIDEBAR NAVIGATION
+       Slide-in drawer that replaces the hidden nav on small screens
+  ============================================================ -->
+    <aside
+      class="sidebar"
+      id="sidebar"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation menu"
+    >
+      <div class="sidebar-header">
+        <a href="#home" class="logo sidebar-logo"
+          >Muhammad <span>Hafeez</span></a
+        >
+        <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+          <!-- X icon drawn in CSS for zero image dependency -->
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="#home" class="sidebar-link" data-close-sidebar>Home</a>
+        <a href="#services" class="sidebar-link" data-close-sidebar>Services</a>
+        <a href="#projects" class="sidebar-link" data-close-sidebar>Projects</a>
+        <a href="#process" class="sidebar-link" data-close-sidebar>Process</a>
+        <a href="#about" class="sidebar-link" data-close-sidebar>About</a>
+        <a href="#contact" class="sidebar-link" data-close-sidebar>Contact</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a href="#contact" class="btn btn-primary" data-close-sidebar
+          >Book a Call</a
+        >
+      </div>
+    </aside>
+
+    <!-- ============================================================
+       FLOATING NAVBAR
+       Pill-shaped glassmorphism nav anchored to top
+  ============================================================ -->
+    <nav class="navbar" id="navbar" aria-label="Primary navigation">
+      <div class="nav-inner">
+        <!-- Brand mark with purple accent dot -->
+        <a href="#home" class="logo">Muhammad <span>Hafeez</span></a>
+
+        <!-- Desktop links — hidden below 980px -->
+        <div class="nav-links" role="list">
+          <a href="#home" role="listitem">Home</a>
+          <a href="#services" role="listitem">Services</a>
+          <a href="#projects" role="listitem">Projects</a>
+          <a href="#process" role="listitem">Process</a>
+          <a href="#about" role="listitem">About</a>
+          <a href="#contact" role="listitem">Contact</a>
+        </div>
+
+        <!-- Right side: CTA + hamburger -->
+        <div class="nav-right">
+          <a href="#contact" class="btn btn-primary nav-btn">Book a Call</a>
+
+          <!-- Hamburger — visible only on mobile -->
+          <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="sidebar"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
+    <main>
+      <!-- HERO -------------------------------------------------- -->
+      <section class="hero" id="home">
+        <div class="container hero-grid">
+          <!-- Left: headline + CTAs + social proof -->
+          <div class="hero-copy">
+            <div class="eyebrow hero-eyebrow">AI Automation Developer</div>
+
+            <h1 class="hero-heading">
+              Turn Missed Leads Into
+              <span class="typewriter-wrapper">
+                <span id="typewriter-text"></span><span class="typewriter-cursor">|</span>
+              </span>
+              With AI Automation
+            </h1>
+
+            <p class="hero-subtext">
+              I build intelligent voice agents, chat agents, and n8n automation
+              systems that respond instantly, qualify leads, update your CRM,
+              and book calls — while your team focuses on closing.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-primary"
+                >Book a Discovery Call</a
+              >
+              <a href="#projects" class="btn btn-secondary">See Projects</a>
+            </div>
+
+            <!-- Social proof numbers -->
+            <div class="hero-proof">
+              <div class="proof-item">
+                <strong>24/7</strong>
+                <span>AI lead response</span>
+              </div>
+              <div class="proof-divider" aria-hidden="true"></div>
+              <div class="proof-item">
+                <strong>Auto</strong>
+                <span>CRM updates</span>
+              </div>
+              <div class="proof-divider" aria-hidden="true"></div>
+              <div class="proof-item">
+                <strong>Smart</strong>
+                <span>Booking workflows</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: image card with floating UI elements -->
+          <div class="hero-visual">
+            <!-- Live indicator badge -->
+            <div class="status-pill" aria-label="AI Agent is currently active">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              AI Agent Active
+            </div>
+
+            <!-- Main image -->
+            <div class="hero-image-card">
+              <img
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1200&q=80"
+                alt="AI automation dashboard workspace"
+                loading="eager"
+              />
+            </div>
+
+            <!-- Floating notification panel -->
+            <div class="floating-panel" aria-hidden="true">
+              <div class="floating-icon">✦</div>
+              <div>
+                <h4>Lead Qualified</h4>
+                <p>
+                  Budget checked, intent detected, CRM updated, booking link
+                  triggered.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+<!-- AUTOMATION FLOW PREVIEW ------------------------------- -->
+<section class="automation-preview-section" aria-label="Live automation flow preview">
+  <div class="container">
+    <div class="automation-preview gs-reveal">
+      <div class="automation-preview-bg" aria-hidden="true"></div>
+
+      <div class="automation-preview-head">
+        <div>
+          <div class="eyebrow">Live Automation Preview</div>
+          <h2>Your Sales Process, Automated In Seconds</h2>
+        </div>
+
+        <div class="automation-live-badge">
+          <span class="pulse-dot"></span>
+          System Running
+        </div>
+      </div>
+
+      <p class="automation-preview-text">
+        From first message to booked appointment, every step runs automatically —
+        lead capture, AI qualification, CRM updates, smart follow-ups, and calendar booking.
+      </p>
+
+      <div class="automation-flow">
+        <div class="flow-line" aria-hidden="true">
+          <span class="flow-dot"></span>
+        </div>
+
+        <article class="flow-card">
+          <div class="flow-icon">01</div>
+          <span>New Lead</span>
+          <h3>Lead Captured</h3>
+          <p>Website form, missed call, chat, or inbound inquiry comes in.</p>
+        </article>
+
+        <article class="flow-card">
+          <div class="flow-icon">02</div>
+          <span>AI Agent</span>
+          <h3>Instant Qualification</h3>
+          <p>AI asks smart questions and checks intent, budget, and need.</p>
+        </article>
+
+        <article class="flow-card">
+          <div class="flow-icon">03</div>
+          <span>CRM Sync</span>
+          <h3>Pipeline Updated</h3>
+          <p>Notes, tags, status, and lead details are added automatically.</p>
+        </article>
+
+        <article class="flow-card flow-card-success">
+          <div class="flow-icon">✓</div>
+          <span>Booked</span>
+          <h3>Call Scheduled</h3>
+          <p>Qualified leads get a calendar invite and confirmation follow-up.</p>
+        </article>
+      </div>
+
+      <div class="automation-mini-tags">
+        <span>Missed Call Recovery</span>
+        <span>Lead Qualification</span>
+        <span>CRM Updates</span>
+        <span>Smart Follow-Up</span>
+        <span>Booking Automation</span>
+      </div>
+    </div>
+  </div>
+</section>
+      <!-- TECH STACK MARQUEE ------------------------------------ -->
+      <section class="stack-wrap" aria-label="Technology stack">
+        <div class="marquee" aria-hidden="true">
+          <!-- Duplicated for seamless infinite loop -->
+          <div class="tool-card">n8n</div>
+          <div class="tool-card">GoHighLevel</div>
+          <div class="tool-card">Vapi</div>
+          <div class="tool-card">OpenAI</div>
+          <div class="tool-card">GPT-4o</div>
+          <div class="tool-card">Webhooks</div>
+          <div class="tool-card">Google Calendar</div>
+          <div class="tool-card">REST APIs</div>
+          <div class="tool-card">n8n</div>
+          <div class="tool-card">GoHighLevel</div>
+          <div class="tool-card">Vapi</div>
+          <div class="tool-card">OpenAI</div>
+          <div class="tool-card">GPT-4o</div>
+          <div class="tool-card">Webhooks</div>
+          <div class="tool-card">Google Calendar</div>
+          <div class="tool-card">REST APIs</div>
+        </div>
+      </section>
+
+      <!-- SERVICES --------------------------------------------- -->
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-head center gs-reveal">
+            <div class="eyebrow">Services</div>
+            <h2 class="section-title">
+              Automation Systems Built For Real Business Growth
+            </h2>
+            <p class="section-text">
+              Not just workflows. I design complete AI-powered systems that
+              capture, qualify, follow up, and move leads through your sales
+              process.
+            </p>
+          </div>
+
+          <!-- 3-column service cards -->
+          <div class="grid-3 gs-stagger">
+            <article class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=900&q=80"
+                  alt="AI voice automation"
+                  loading="lazy"
+                />
+              </div>
+              <h3>AI Voice Agents</h3>
+              <p>
+                Human-like voice agents for inbound calls, outbound follow-ups,
+                qualification, and booking.
+              </p>
+              <ul class="mini-list">
+                <li>Inbound and outbound calls</li>
+                <li>Lead qualification scripts</li>
+                <li>Appointment booking</li>
+              </ul>
+            </article>
+
+            <article class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80"
+                  alt="AI chat automation"
+                  loading="lazy"
+                />
+              </div>
+              <h3>AI Chat Agents</h3>
+              <p>
+                Smart chat systems that engage visitors, answer questions,
+                qualify leads, and route conversations.
+              </p>
+              <ul class="mini-list">
+                <li>Website chatbots</li>
+                <li>CRM chat automation</li>
+                <li>Smart lead routing</li>
+              </ul>
+            </article>
+
+            <article class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                  alt="n8n workflow automation"
+                  loading="lazy"
+                />
+              </div>
+              <h3>n8n Workflows</h3>
+              <p>
+                Powerful backend workflows that connect apps, trigger actions,
+                retry failures, and sync data.
+              </p>
+              <ul class="mini-list">
+                <li>Multi-step automation</li>
+                <li>Webhooks and APIs</li>
+                <li>Conditional logic</li>
+              </ul>
+            </article>
+
+            <article class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80"
+                  alt="GoHighLevel CRM automation"
+                  loading="lazy"
+                />
+              </div>
+              <h3>GoHighLevel Automation</h3>
+              <p>
+                CRM systems that update pipelines, tags, notes, and follow-up
+                sequences automatically.
+              </p>
+              <ul class="mini-list">
+                <li>Pipelines and tags</li>
+                <li>Lead routing</li>
+                <li>Follow-up workflows</li>
+              </ul>
+            </article>
+
+            <article class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80"
+                  alt="Sales automation workflow"
+                  loading="lazy"
+                />
+              </div>
+              <h3>Sales Automation</h3>
+              <p>
+                Lead-to-booking systems that reduce manual work and keep every
+                prospect moving forward.
+              </p>
+              <ul class="mini-list">
+                <li>Missed call automation</li>
+                <li>SMS and email follow-ups</li>
+                <li>Booking workflows</li>
+              </ul>
+            </article>
+
+            <article class="service-card">
+              <div class="service-img">
+                <img
+                  src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80"
+                  alt="GPT-4o AI integration"
+                  loading="lazy"
+                />
+              </div>
+              <h3>AI Integrations</h3>
+              <p>
+                GPT-4o powered systems with tool calling, function execution,
+                and knowledge base integration.
+              </p>
+              <ul class="mini-list">
+                <li>OpenAI APIs</li>
+                <li>Tool calling</li>
+                <li>Knowledge base logic</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FEATURED PROJECTS ------------------------------------ -->
+      <section class="section section-alt" id="projects">
+        <div class="container">
+          <div class="section-head gs-reveal">
+            <div class="eyebrow">Featured Projects</div>
+            <h2 class="section-title">
+              AI Systems That Work Like A Sales Team In The Background
+            </h2>
+            <p class="section-text">
+              Each project removes slow manual steps from your lead process and
+              replaces them with fast, intelligent automation.
+            </p>
+          </div>
+
+          <!-- Project card 1 -->
+          <article class="project-card gs-reveal">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1100&q=80"
+                alt="Lead qualification automation dashboard"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-content">
+              <div class="eyebrow">Voice Automation</div>
+              <h3>AI Voice Lead Qualification & Booking System</h3>
+              <p>
+                A complete AI voice system for inbound and outbound lead calls.
+                It qualifies prospects, handles retry logic, syncs outcomes into
+                GoHighLevel, routes off-hours leads, and books qualified
+                appointments automatically.
+              </p>
+              <div class="tags">
+                <span class="tag">Vapi</span>
+                <span class="tag">n8n</span>
+                <span class="tag">GoHighLevel</span>
+                <span class="tag">GPT-4o</span>
+                <span class="tag">Booking Automation</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project card 2 -->
+          <article class="project-card gs-reveal">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=80"
+                alt="Chat and voice CRM automation"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-content">
+              <div class="eyebrow">CRM Automation</div>
+              <h3>AI Chat & Voice Automation Inside GoHighLevel</h3>
+              <p>
+                AI-powered chat and voice agents connected with GHL to engage
+                customers, qualify leads, update pipeline stages, add notes, and
+                trigger appointment scheduling flows.
+              </p>
+              <div class="tags">
+                <span class="tag">GHL</span>
+                <span class="tag">AI Chat Agent</span>
+                <span class="tag">Voice AI</span>
+                <span class="tag">Lead Routing</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project card 3 -->
+          <article class="project-card gs-reveal">
+            <div class="project-image">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1100&q=80"
+                alt="Analytics and follow-up automation"
+                loading="lazy"
+              />
+            </div>
+            <div class="project-content">
+              <div class="eyebrow">Follow-Up System</div>
+              <h3>AI Follow-Up & Missed Call Automation</h3>
+              <p>
+                A missed-call recovery system that instantly sends SMS/email
+                replies, updates CRM records, moves leads through pipeline
+                stages, and keeps follow-ups running without manual effort.
+              </p>
+              <div class="tags">
+                <span class="tag">n8n</span>
+                <span class="tag">CRM Automation</span>
+                <span class="tag">Webhooks</span>
+                <span class="tag">Follow-Up System</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROCESS ---------------------------------------------- -->
+      <section class="section" id="process">
+        <div class="container">
+          <div class="section-head center gs-reveal">
+            <div class="eyebrow">Process</div>
+            <h2 class="section-title">
+              From Broken Workflow To Smooth Automation
+            </h2>
+            <p class="section-text">
+              I don't just connect tools. I map your full lead journey and build
+              a system that is reliable, trackable, and ready for real
+              customers.
+            </p>
+          </div>
+
+          <!-- Numbered process steps — order actually matters here -->
+          <div class="process-grid gs-stagger">
+            <article class="process-card">
+              <div class="process-num">01</div>
+              <h3>Discovery</h3>
+              <p>
+                We identify where leads come from, where they get stuck, and
+                what should happen next.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-num">02</div>
+              <h3>Process Mapping</h3>
+              <p>
+                Your lead journey is mapped into clear triggers, actions,
+                conditions, and outcomes.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-num">03</div>
+              <h3>System Architecture</h3>
+              <p>
+                I design the AI agents, n8n workflows, CRM logic, APIs, and
+                booking structure.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-num">04</div>
+              <h3>Development</h3>
+              <p>
+                The automation is built using Vapi, GoHighLevel, GPT-4o,
+                webhooks, and n8n.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-num">05</div>
+              <h3>Testing</h3>
+              <p>
+                Every conversation, CRM update, follow-up, booking, and failure
+                scenario is tested.
+              </p>
+            </article>
+
+            <article class="process-card">
+              <div class="process-num">06</div>
+              <h3>Deployment</h3>
+              <p>
+                Your system goes live with monitoring, optimization, and room to
+                scale.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- RESULTS / BENEFITS ----------------------------------- -->
+      <section class="section section-alt">
+        <div class="container">
+          <div class="section-head center gs-reveal">
+            <div class="eyebrow">Results</div>
+            <h2 class="section-title">What You Get After Automation</h2>
+          </div>
+
+          <div class="benefit-grid gs-stagger">
+            <div class="benefit">
+              <strong class="benefit-stat">24/7</strong>
+              <h3>Instant Lead Response</h3>
+              <p>
+                Your business responds even when your team is busy, offline, or
+                asleep.
+              </p>
+            </div>
+
+            <div class="benefit">
+              <strong class="benefit-stat">Less</strong>
+              <h3>Manual Follow-Up</h3>
+              <p>
+                SMS, email, calls, CRM notes, and pipeline updates happen
+                automatically.
+              </p>
+            </div>
+
+            <div class="benefit">
+              <strong class="benefit-stat">More</strong>
+              <h3>Qualified Calls</h3>
+              <p>
+                Your calendar gets filled with better-fit leads instead of
+                random inquiries.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT ------------------------------------------------ -->
+      <section class="section" id="about">
+        <div class="container about-grid">
+          <!-- Workspace photo -->
+          <div class="about-image gs">
+            <img
+              src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=80"
+              alt="Modern workspace for automation developer"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Bio copy -->
+          <div class="about-copy">
+            <div class="eyebrow">About Muhammad Hafeez</div>
+
+            <h2 class="section-title">
+              I Build Automation Systems That Feel Simple On The Outside And
+              <span class="purple">Powerful Behind The Scenes</span>
+            </h2>
+
+            <p>
+              I'm an AI Automation Developer focused on helping businesses
+              replace slow, manual lead handling with intelligent systems that
+              respond, qualify, follow up, update CRM records, and book
+              appointments automatically.
+            </p>
+
+            <p>
+              My work combines AI voice agents, chat agents, n8n workflow
+              automation, GoHighLevel CRM systems, GPT-4o integrations,
+              webhooks, APIs, and event-driven automation architecture.
+            </p>
+
+            <!-- Key specialties grid -->
+            <div class="about-points">
+              <div class="about-point"><span>✦</span> Voice AI Systems</div>
+              <div class="about-point"><span>✦</span> n8n Automation</div>
+              <div class="about-point"><span>✦</span> GHL CRM Logic</div>
+              <div class="about-point"><span>✦</span> Sales Automation</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA BANNER ------------------------------------------- -->
+      <section class="section cta-section">
+        <div class="container">
+          <div class="cta">
+            <!-- Decorative blobs — aria-hidden so screen readers skip them -->
+            <div class="cta-blob cta-blob--tl" aria-hidden="true"></div>
+            <div class="cta-blob cta-blob--br" aria-hidden="true"></div>
+
+            <h2>Ready To Stop Losing Leads?</h2>
+            <p>
+              Let's build an AI automation system that answers faster, qualifies
+              better, follows up automatically, and books more appointments for
+              your business.
+            </p>
+            <a href="#contact" class="btn cta-btn">Book a Discovery Call</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT ---------------------------------------------- -->
+      <section class="section" id="contact">
+        <div class="container">
+          <div class="section-head">
+            <div class="eyebrow">Contact</div>
+            <h2 class="section-title">Let's Build Your AI Automation System</h2>
+            <p class="section-text">
+              Tell me what you want to automate. I'll help you turn it into a
+              clean, reliable, business-ready system.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <!-- Contact form -->
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="field">
+                <label for="name" class="field-label">Your name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="e.g. John Smith"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+
+              <div class="field">
+                <label for="email" class="field-label">Email address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@company.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+
+              <div class="field">
+                <label for="company" class="field-label"
+                  >Business / Company
+                  <span class="field-optional">(optional)</span></label
+                >
+                <input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Your company"
+                  autocomplete="organization"
+                />
+              </div>
+
+              <div class="field">
+                <label for="message" class="field-label"
+                  >What do you want to automate?</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Describe your current process and what you'd like to automate..."
+                  required
+                ></textarea>
+              </div>
+
+              <div class="field">
+                <label for="budget" class="field-label">Budget range</label>
+                <select id="budget" name="budget">
+                  <option value="">Select a range</option>
+                  <option value="500-1000">$500 – $1,000</option>
+                  <option value="1000-3000">$1,000 – $3,000</option>
+                  <option value="3000-5000">$3,000 – $5,000</option>
+                  <option value="5000+">$5,000+</option>
+                </select>
+              </div>
+
+              <button class="btn btn-primary btn-full" type="submit">
+                Send Project Request
+              </button>
+
+              <!-- Success message — hidden by default -->
+              <div
+                class="form-success"
+                id="formSuccess"
+                role="status"
+                aria-live="polite"
+              >
+                <span>✦</span> Thanks! Your request has been received. I'll be
+                in touch soon.
+              </div>
+            </form>
+
+            <!-- Contact details sidebar -->
+            <div class="contact-box">
+              <h3>Contact Details</h3>
+              <p class="contact-box-intro">
+                Prefer to reach out directly? Here are the best ways to get in
+                touch.
+              </p>
+
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Hafeezshaikh1172@gmail.com" class="contact-link" target="_blank">
+  <span class="contact-link-label">Email</span>
+  <span class="contact-link-value">Hafeezshaikh1172@gmail.com</span>
+</a>
+
+              <a
+                href="https://wa.me/923117223787"
+                class="contact-link"
+                target="_blank"
+              >
+                <span class="contact-link-label">WhatsApp</span>
+                <span class="contact-link-value">+92 311 7223787</span>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/hafeez-shaikh-58643623b/"
+                class="contact-link"
+                target="_blank"
+              >
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-value">Hafeez Shaikh</span>
+              </a>
+
+              <!-- Availability badge -->
+              <div class="availability-badge">
+                <span class="pulse-dot"></span>
+                Available for new projects
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER  -->
+    <footer>
+      <div class="container footer-inner">
+        <div class="footer-brand">Muhammad Hafeez</div>
+        <div class="footer-role">AI Automation Developer</div>
+        <div class="footer-copy">
+          © 2026 Muhammad Hafeez. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!--
+       SCRIPTS
+       Load GSAP from CDN, then our animation file, then main script -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      defer
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      defer
+    ></script>
+    <script src="animations.js" defer></script>
+    <script src="script.js" defer></script>
+
+    <!-- Hero typewriter animation -->
+    <script>
+      const typewriterText = document.getElementById("typewriter-text");
+
+      const typewriterWords = [
+        "Booked Appointments",
+        "Qualified Leads",
+        "Instant Follow-Ups",
+        "CRM Updates",
+        "AI Voice Calls",
+        "Missed Call Recovery",
+        "Sales Automation"
+      ];
+
+      let typewriterWordIndex = 0;
+      let typewriterCharIndex = 0;
+      let typewriterDeleting = false;
+
+      function runTypewriter() {
+        const currentWord = typewriterWords[typewriterWordIndex];
+
+        if (typewriterDeleting) {
+          typewriterText.textContent = currentWord.substring(0, typewriterCharIndex - 1);
+          typewriterCharIndex--;
+        } else {
+          typewriterText.textContent = currentWord.substring(0, typewriterCharIndex + 1);
+          typewriterCharIndex++;
+        }
+
+        let speed = typewriterDeleting ? 45 : 80;
+
+        if (!typewriterDeleting && typewriterCharIndex === currentWord.length) {
+          speed = 1300;
+          typewriterDeleting = true;
+        } else if (typewriterDeleting && typewriterCharIndex === 0) {
+          typewriterDeleting = false;
+          typewriterWordIndex = (typewriterWordIndex + 1) % typewriterWords.length;
+          speed = 350;
+        }
+
+        setTimeout(runTypewriter, speed);
+      }
+
+      if (typewriterText) {
+        runTypewriter();
+      }
+    </script>
+  </body>
+</html>
