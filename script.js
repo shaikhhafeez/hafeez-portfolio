@@ -150,70 +150,63 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(updateGlow);
   }
 
-  /* ===========================================================
-     CONTACT FORM — Netlify Forms AJAX submit
-     Page reload nahi hoga, data Netlify Forms main chala jayega
-  =========================================================== */
+ /* ===========================================================
+   CONTACT FORM — Netlify Forms AJAX submit
+=========================================================== */
 
-  if (contactForm) {
-    contactForm.addEventListener("submit", async (e) => {
-      e.preventDefault();
+if (contactForm) {
+  contactForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-      if (!contactForm.checkValidity()) {
-        contactForm.reportValidity();
-        return;
+    if (!contactForm.checkValidity()) {
+      contactForm.reportValidity();
+      return;
+    }
+
+    const submitBtn = contactForm.querySelector("[type='submit']");
+    const originalText = submitBtn ? submitBtn.textContent : "Send Project Request";
+
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending…";
+    }
+
+    try {
+      const formData = new FormData(contactForm);
+
+      await fetch("/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      if (formSuccess) {
+        formSuccess.classList.add("visible");
+        formSuccess.innerHTML =
+          "<span>✦</span> Thanks! Your request has been received. I'll be in touch soon.";
       }
 
-      const submitBtn = contactForm.querySelector("[type='submit']");
-      const originalText = submitBtn
-        ? submitBtn.textContent
-        : "Send Project Request";
+      contactForm.reset();
 
+      setTimeout(() => {
+        if (formSuccess) formSuccess.classList.remove("visible");
+      }, 6000);
+    } catch (error) {
+      if (formSuccess) {
+        formSuccess.classList.add("visible");
+        formSuccess.innerHTML =
+          "<span>!</span> Please check your internet connection or contact me on WhatsApp.";
+      }
+    } finally {
       if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.textContent = "Sending…";
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
       }
-
-      try {
-        const formData = new FormData(contactForm);
-
-        const response = await fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-          body: new URLSearchParams(formData).toString(),
-        });
-
-        if (!response.ok) {
-          throw new Error("Form submission failed");
-        }
-
-        if (formSuccess) {
-          formSuccess.classList.add("visible");
-          formSuccess.innerHTML =
-            "<span>✦</span> Thanks! Your request has been received. I'll be in touch soon.";
-        }
-
-        contactForm.reset();
-
-        setTimeout(() => {
-          if (formSuccess) formSuccess.classList.remove("visible");
-        }, 6000);
-      } catch (error) {
-        if (formSuccess) {
-          formSuccess.classList.add("visible");
-          formSuccess.innerHTML =
-            "<span>!</span> Something went wrong. Please try again or contact me on WhatsApp.";
-        }
-      } finally {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = originalText;
-        }
-      }
-    });
-  }
+    }
+  });
+}
 
   /* ===========================================================
      BUTTON PRESS EFFECT
