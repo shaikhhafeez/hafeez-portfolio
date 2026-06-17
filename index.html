@@ -19,10 +19,12 @@
     <!-- Typewriter animation styles for hero heading -->
     <style>
       .typewriter-wrapper {
-        display: block;
-        color: #7C3AED;
-        min-height: 1.05em;
-      }
+  display: block;
+  color: #7C3AED;
+  height: 1.15em;
+  line-height: 1.05;
+  white-space: nowrap;
+}
 
       .typewriter-cursor {
         color: #7C3AED;
@@ -725,23 +727,17 @@
 
           <div class="contact-grid">
             <!-- Contact form -->
-            <form
-  class="contact-form"
-  id="contactForm"
-  name="project-request"
-  method="POST"
-  action="/"
-  data-netlify="true"
-  netlify
+            <form 
+  class="contact-form" 
+  id="contactForm" 
+  name="project-request" 
+  method="POST" 
+  data-netlify="true" 
   netlify-honeypot="bot-field"
 >
   <input type="hidden" name="form-name" value="project-request" />
-
   <p style="display: none;">
-    <label>
-      Don’t fill this out if you’re human:
-      <input name="bot-field" />
-    </label>
+    <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
   </p>
               <div class="field">
                 <label for="name" class="field-label">Your name</label>
@@ -892,14 +888,12 @@
       const typewriterText = document.getElementById("typewriter-text");
 
       const typewriterWords = [
-        "Booked Appointments",
-        "Qualified Leads",
-        "Instant Follow-Ups",
-        "CRM Updates",
-        "AI Voice Calls",
-        "Missed Call Recovery",
-        "Sales Automation"
-      ];
+  "Booked Appointments",
+  "Qualified Leads",
+  "CRM Updates",
+  "AI Voice Calls",
+  "Sales Automation"
+];
 
       let typewriterWordIndex = 0;
       let typewriterCharIndex = 0;
