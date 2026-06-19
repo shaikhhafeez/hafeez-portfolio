@@ -2218,3 +2218,10 @@ body.no-gsap .gs-stagger > * {
     font-size: 11.5px;
   }
 }
+.gs-reveal,
+.gs-stagger > *,
+.gs {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
