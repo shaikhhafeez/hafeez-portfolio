@@ -43,7 +43,19 @@
       }
     </style>
   </head>
+<script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
 
+<vapi-widget
+  public-key="YOUR_PUBLIC_KEY"
+  assistant-id="YOUR_ASSISTANT_ID"
+  mode="voice"
+  theme="dark"
+  size="compact"
+  main-label="AI Receptionist Demo"
+  start-button-text="Start Demo Call"
+  end-button-text="End Call"
+  empty-voice-message="Click to start a voice conversation"
+></vapi-widget>
   <body>
     <!-- Cursor glow that follows the mouse — purely decorative ambient light -->
     <div class="cursor-glow" aria-hidden="true"></div>
