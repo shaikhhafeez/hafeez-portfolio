@@ -45,17 +45,7 @@
   </head>
 <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
 
-<vapi-widget
-  public-key="c6cf9d96-2aec-437f-9e8d-916b9f01cee8"
-  assistant-id="e4cc8b20-0527-4f18-8c10-04be53f1b8ca"
-  mode="voice"
-  theme="dark"
-  size="compact"
-  main-label="AI Receptionist Demo"
-  start-button-text="Start Demo Call"
-  end-button-text="End Call"
-  empty-voice-message="Click to start a voice conversation"
-></vapi-widget>
+
   <body>
     <!-- Cursor glow that follows the mouse — purely decorative ambient light -->
     <div class="cursor-glow" aria-hidden="true"></div>
@@ -904,5 +894,18 @@
         runTypewriter();
       }
     </script>
+    <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+
+<vapi-widget
+  public-key="YOUR_PUBLIC_KEY"
+  assistant-id="YOUR_ASSISTANT_ID"
+  mode="voice"
+  theme="dark"
+  size="compact"
+  main-label="AI Receptionist Demo"
+  start-button-text="Start Demo Call"
+  end-button-text="End Call"
+  empty-voice-message="Click to start a voice conversation"
+></vapi-widget>
   </body>
 </html>
