@@ -2251,3 +2251,6 @@ body.no-gsap .gs-stagger > * {
   white-space: nowrap;
   margin: 0 !important;
 }
+.automation-flow {
+  margin-bottom: 35px;
+}
