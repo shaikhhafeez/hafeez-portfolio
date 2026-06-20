@@ -1534,9 +1534,11 @@ body.no-gsap .gs-stagger > * {
 
   .logo { font-size: 15px; }
 }
+
+
 /* ============================================================
    AUTOMATION FLOW PREVIEW
-   Fills the empty space between hero and tech stack
+   Clean desktop + mobile layout
 ============================================================ */
 
 .automation-preview-section {
@@ -1620,6 +1622,7 @@ body.no-gsap .gs-stagger > * {
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
   gap: 18px;
   margin-top: 22px;
 }
@@ -1657,6 +1660,7 @@ body.no-gsap .gs-stagger > * {
   position: relative;
   z-index: 1;
   min-height: 210px;
+  height: 100%;
   padding: 22px;
   border: 1px solid rgba(17, 24, 39, 0.08);
   border-radius: 24px;
@@ -1719,10 +1723,14 @@ body.no-gsap .gs-stagger > * {
 }
 
 .automation-mini-tags {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 12px;
+  align-items: center;
+  gap: 10px 12px;
+  width: 100%;
   margin-top: 28px;
 }
 
@@ -1730,273 +1738,6 @@ body.no-gsap .gs-stagger > * {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;
-}
-
-@keyframes flowDotMove {
-  0% {
-    left: 0;
-    opacity: 0;
-  }
-
-  8% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  92% {
-    opacity: 1;
-  }
-
-  100% {
-    left: calc(100% - 13px);
-    opacity: 0;
-  }
-}
-
-@media (max-width: 980px) {
-  .automation-preview {
-    padding: 28px;
-  }
-
-  .automation-preview-head {
-    flex-direction: column;
-  }
-
-  .automation-flow {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .flow-line {
-    display: none;
-  }
-}
-
-@media (max-width: 640px) {
-  .automation-preview-section {
-    padding: 0 0 42px;
-  }
-
-  .automation-preview {
-    padding: 22px;
-    border-radius: 26px;
-  }
-
-  .automation-flow {
-    grid-template-columns: 1fr;
-  }
-
-  .flow-card {
-    min-height: auto;
-  }
-
-  .automation-live-badge {
-    width: fit-content;
-  }
-
-  .stack-wrap::before {
-    font-size: 16px;
-  }
-}
-/* ============================================================
-   AUTOMATION FLOW PREVIEW
-   Fills the empty space between hero and tech stack
-============================================================ */
-
-.automation-preview-section {
-  position: relative;
-  padding: 10px 0 56px;
-  background: #ffffff;
-  overflow: hidden;
-}
-
-.automation-preview {
-  position: relative;
-  overflow: hidden;
-  padding: 34px;
-  border: 1px solid rgba(124, 58, 237, 0.12);
-  border-radius: 34px;
-  background:
-    radial-gradient(circle at top left, rgba(124, 58, 237, 0.14), transparent 34%),
-    radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.08), transparent 34%),
-    rgba(255, 255, 255, 0.9);
-  box-shadow: 0 26px 80px rgba(17, 24, 39, 0.08);
-}
-
-.automation-preview-bg {
-  position: absolute;
-  inset: auto -120px -180px auto;
-  width: 360px;
-  height: 360px;
-  border-radius: 999px;
-  background: rgba(124, 58, 237, 0.12);
-  filter: blur(40px);
-  pointer-events: none;
-}
-
-.automation-preview-head {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 22px;
-  margin-bottom: 14px;
-}
-
-.automation-preview-head h2 {
-  margin: 8px 0 0;
-  max-width: 680px;
-  font-family: "Sora", sans-serif;
-  font-size: clamp(28px, 4vw, 46px);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
-  color: #111111;
-}
-
-.automation-live-badge {
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  padding: 12px 16px;
-  border: 1px solid rgba(124, 58, 237, 0.15);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.86);
-  color: #4c1d95;
-  font-size: 14px;
-  font-weight: 800;
-  box-shadow: 0 14px 34px rgba(124, 58, 237, 0.12);
-}
-
-.automation-preview-text {
-  position: relative;
-  z-index: 2;
-  max-width: 790px;
-  margin: 0 0 28px;
-  color: #666a73;
-  font-size: 17px;
-  line-height: 1.75;
-}
-
-.automation-flow {
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 22px;
-}
-
-.flow-line {
-  position: absolute;
-  top: 42px;
-  left: 7%;
-  right: 7%;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    rgba(124, 58, 237, 0.08),
-    rgba(124, 58, 237, 0.65),
-    rgba(124, 58, 237, 0.08)
-  );
-  overflow: hidden;
-  z-index: 0;
-}
-
-.flow-dot {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 13px;
-  height: 13px;
-  border-radius: 999px;
-  background: #7c3aed;
-  box-shadow: 0 0 0 8px rgba(124, 58, 237, 0.12), 0 0 22px rgba(124, 58, 237, 0.75);
-  transform: translateY(-50%);
-  animation: flowDotMove 4.8s ease-in-out infinite;
-}
-
-.flow-card {
-  position: relative;
-  z-index: 1;
-  min-height: 210px;
-  padding: 22px;
-  border: 1px solid rgba(17, 24, 39, 0.08);
-  border-radius: 24px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 18px 46px rgba(17, 24, 39, 0.06);
-  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
-}
-
-.flow-card:hover {
-  transform: translateY(-7px);
-  border-color: rgba(124, 58, 237, 0.28);
-  box-shadow: 0 24px 62px rgba(124, 58, 237, 0.12);
-}
-
-.flow-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 46px;
-  height: 46px;
-  margin-bottom: 18px;
-  border-radius: 16px;
-  background: #7c3aed;
-  color: #ffffff;
-  font-size: 14px;
-  font-weight: 900;
-  box-shadow: 0 12px 28px rgba(124, 58, 237, 0.28);
-}
-
-.flow-card span {
-  display: block;
-  margin-bottom: 8px;
-  color: #7c3aed;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.flow-card h3 {
-  margin: 0 0 10px;
-  color: #111111;
-  font-family: "Sora", sans-serif;
-  font-size: 19px;
-  letter-spacing: -0.03em;
-}
-
-.flow-card p {
-  margin: 0;
-  color: #6b7280;
-  font-size: 14px;
-  line-height: 1.65;
-}
-
-.flow-card-success {
-  border-color: rgba(124, 58, 237, 0.22);
-  background:
-    linear-gradient(180deg, rgba(124, 58, 237, 0.08), rgba(255, 255, 255, 0.96)),
-    #ffffff;
-}
-
-.automation-mini-tags {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 22px;
-}
-
-.automation-mini-tags span {
-  display: inline-flex;
-  align-items: center;
   min-height: 38px;
   padding: 9px 14px;
   border: 1px solid rgba(124, 58, 237, 0.14);
@@ -2005,6 +1746,8 @@ body.no-gsap .gs-stagger > * {
   color: #3f3f46;
   font-size: 13px;
   font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
   box-shadow: 0 10px 24px rgba(17, 24, 39, 0.04);
 }
 
@@ -2018,10 +1761,6 @@ body.no-gsap .gs-stagger > * {
     opacity: 1;
   }
 
-  50% {
-    opacity: 1;
-  }
-
   92% {
     opacity: 1;
   }
@@ -2030,6 +1769,32 @@ body.no-gsap .gs-stagger > * {
     left: calc(100% - 13px);
     opacity: 0;
   }
+}
+
+/* Keep the nav links close to the CTA button on desktop */
+@media (min-width: 981px) {
+  .nav-inner {
+    justify-content: flex-start;
+  }
+
+  .nav-links {
+    flex: 0 0 auto;
+    margin-left: auto;
+    margin-right: 28px;
+  }
+
+  .nav-right {
+    flex: 0 0 auto;
+  }
+}
+
+/* Make sure reveal classes do not keep content hidden if GSAP fails */
+.gs-reveal,
+.gs-stagger > *,
+.gs {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
 }
 
 @media (max-width: 980px) {
@@ -2049,37 +1814,6 @@ body.no-gsap .gs-stagger > * {
     display: none;
   }
 }
-
-@media (max-width: 640px) {
-  .automation-preview-section {
-    padding: 0 0 42px;
-  }
-
-  .automation-preview {
-    padding: 22px;
-    border-radius: 26px;
-  }
-
-  .automation-flow {
-    grid-template-columns: 1fr;
-  }
-
-  .flow-card {
-    min-height: auto;
-  }
-
-  .automation-live-badge {
-    width: fit-content;
-  }
-
-  .stack-wrap::before {
-    font-size: 16px;
-  }
-}
-/* ============================================================
-   MOBILE FIX — AUTOMATION FLOW PREVIEW
-   Clean vertical timeline layout on mobile
-============================================================ */
 
 @media (max-width: 768px) {
   .automation-preview-section {
@@ -2130,6 +1864,7 @@ body.no-gsap .gs-stagger > * {
     column-gap: 14px;
     align-items: start;
     min-height: auto;
+    height: auto;
     padding: 18px;
     border-radius: 20px;
     animation: none !important;
@@ -2142,10 +1877,6 @@ body.no-gsap .gs-stagger > * {
     margin-bottom: 0;
     border-radius: 15px;
     font-size: 13px;
-  }
-
-  .flow-icon::after {
-    display: none;
   }
 
   .flow-card span {
@@ -2173,6 +1904,29 @@ body.no-gsap .gs-stagger > * {
     padding: 8px 11px;
     font-size: 12px;
     animation: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .automation-preview-section {
+    padding: 0 0 42px;
+  }
+
+  .automation-preview {
+    padding: 22px;
+    border-radius: 26px;
+  }
+
+  .automation-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .flow-card {
+    min-height: auto;
+  }
+
+  .automation-live-badge {
+    width: fit-content;
   }
 }
 
@@ -2209,48 +1963,4 @@ body.no-gsap .gs-stagger > * {
     font-size: 11.5px;
   }
 }
-.gs-reveal,
-.gs-stagger > *,
-.gs {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: none !important;
-}
-/* FIX: navbar gap */
-.nav-inner {
-  justify-content: space-between;
-}
 
-.nav-links {
-  flex: 0 0 auto !important;
-  margin-left: auto;
-  margin-right: 28px;
-}
-
-.nav-right {
-  flex: 0 0 auto;
-}
-
-/* FIX: automation tags alignment */
-.automation-mini-tags {
-  position: static !important;
-  display: flex !important;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 10px 12px;
-  margin-top: 28px;
-  width: 100%;
-}
-
-.automation-mini-tags span {
-  position: static !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  margin: 0 !important;
-}
-.automation-flow {
-  margin-bottom: 35px;
-}
