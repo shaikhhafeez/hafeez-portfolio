@@ -2216,3 +2216,38 @@ body.no-gsap .gs-stagger > * {
   visibility: visible !important;
   transform: none !important;
 }
+/* FIX: navbar gap */
+.nav-inner {
+  justify-content: space-between;
+}
+
+.nav-links {
+  flex: 0 0 auto !important;
+  margin-left: auto;
+  margin-right: 28px;
+}
+
+.nav-right {
+  flex: 0 0 auto;
+}
+
+/* FIX: automation tags alignment */
+.automation-mini-tags {
+  position: static !important;
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px 12px;
+  margin-top: 28px;
+  width: 100%;
+}
+
+.automation-mini-tags span {
+  position: static !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  margin: 0 !important;
+}
