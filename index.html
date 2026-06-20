@@ -675,7 +675,7 @@
               better, follows up automatically, and books more appointments for
               your business.
             </p>
-            <a href="#contact" class="btn cta-btn">Book a Discovery Call</a>
+            <a href="#" class="btn cta-btn vapi-call-btn">Book a Discovery Call</a>
           </div>
         </div>
       </section>
@@ -895,18 +895,23 @@
         runTypewriter();
       }
     </script>
-    <script src="https://unpkg.com/@vapi-ai/client-sdk-react/dist/embed/widget.umd.js" async type="text/javascript"></script>
+  <script type="module">
+  import Vapi from "https://esm.sh/@vapi-ai/web";
 
-<vapi-widget
-  public-key="c6cf9d96-2aec-437f-9e8d-916b9f01cee8"
-  assistant-id="e4cc8b20-0527-4f18-8c10-04be53f1b8ca"
-  mode="voice"
-  theme="dark"
-  size="compact"
-  main-label="AI Receptionist Demo"
-  start-button-text="Start Demo Call"
-  end-button-text="End Call"
-  empty-voice-message="Click to start a voice conversation"
-></vapi-widget>
+  const vapi = new Vapi("c6cf9d96-2aec-437f-9e8d-916b9f01cee8");
+
+  document.querySelectorAll(".vapi-call-btn").forEach((button) => {
+    button.addEventListener("click", async (e) => {
+      e.preventDefault();
+
+      try {
+        await vapi.start("e4cc8b20-0527-4f18-8c10-04be53f1b8ca");
+      } catch (error) {
+        console.error(error);
+        alert("Call start nahi hui. Mic permission allow karo ya Vapi keys check karo.");
+      }
+    });
+  });
+</script>
   </body>
 </html>
