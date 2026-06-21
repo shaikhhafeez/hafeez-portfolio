@@ -1767,7 +1767,7 @@ body.no-gsap .gs-stagger > * {
 
   100% {
     left: calc(100% - 13px);
-    opacity: 0;
+    opacity: 1;
   }
 }
 
