@@ -237,17 +237,17 @@ window.addEventListener("load", () => {
 
   if (!automationSection) return;
 
-  gsap.from(".automation-preview", {
-    opacity: 0,
-    y: 70,
-    scale: 0.96,
-    duration: 1,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: ".automation-preview",
-      start: "top 82%",
-    },
-  });
+  // gsap.from(".automation-preview", {
+  //   opacity: 0,
+  //   y: 70,
+  //   scale: 0.96,
+  //   duration: 1,
+  //   ease: "power3.out",
+  //   scrollTrigger: {
+  //     trigger: ".automation-preview",
+  //     start: "top 82%",
+  //   },
+  // });
 
   gsap.from(".automation-preview-head > *", {
     opacity: 0,
