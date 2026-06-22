@@ -273,18 +273,17 @@ window.addEventListener("load", () => {
     },
   });
 
- gsap.from(flowCards, {
-  opacity: 0,
-  y: 30, // Pura 55px neeche girane ke bajaye thoda kam (30px) slide den
-  scale: 0.95,
-  duration: 0.6, // Animation ko thoda fast kar dein
-  stagger: 0.05, // Stagger ka gap kam kar dein taake sath hi align hon
-  ease: "power2.out",
-  scrollTrigger: {
-    trigger: ".automation-flow",
-    start: "top 85%", // Thoda jaldi trigger hoga
-  },
-});
+gsap.from(flowCards, {
+    opacity: 0,
+    scale: 0.96,           // Card apni hi jagah par thoda chhota hoke bada hoga
+    duration: 0.6,         // Animation fast aur crisp hogi
+    stagger: 0.08,         // Halki si premium sequential feel ke liye
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".automation-flow",
+      start: "top 85%",
+    },
+  });
 
   gsap.from(miniTags, {
     opacity: 0,
