@@ -616,6 +616,7 @@ h3 { line-height: 1.15; }
   inset: 0;
   background: linear-gradient(to top, rgba(17, 17, 17, .55) 0%, transparent 50%);
   pointer-events: none;
+  padding : 0  20px 0 0;
 }
 
 .status-pill {
