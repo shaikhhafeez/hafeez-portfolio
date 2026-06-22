@@ -1,33 +1,6 @@
 
-/* ============================================================
-   STYLE.CSS — Muhammad Hafeez Portfolio
-   Premium AI Automation Developer Portfolio
-   
-   Table of contents:
-   1. CSS Variables & Reset
-   2. Typography & Shared Utilities
-   3. Shared Components (buttons, eyebrow, section-head)
-   4. Cursor Glow
-   5. Navbar
-   6. Mobile Sidebar
-   7. Hero Section
-   8. Tech Stack Marquee
-   9. Services Section
-   10. Projects Section
-   11. Process Section
-   12. Benefits Section
-   13. About Section
-   14. CTA Banner
-   15. Contact Section
-   16. Footer
-   17. Scroll-Reveal Animation Classes
-   18. Media Queries (tablet → mobile)
-============================================================ */
 
 
-/* ============================================================
-   1. CSS VARIABLES & RESET
-============================================================ */
 
 :root {
   /* — Palette — */
@@ -552,7 +525,7 @@ h3 { line-height: 1.15; }
 }
 
 .hero-heading {
-  font-size: clamp(44px, 6.5vw, 84px);
+  font-size: clamp(37px, 5.5vw, 74px);
   line-height: 0.97;
   margin-bottom: 28px;
 }
@@ -1410,7 +1383,7 @@ footer {
 }
 
 .gs-stagger > * {
-  opacity: 1;
+  opacity: 0;
   transform: translateY(25px);
 }
 
@@ -1426,6 +1399,7 @@ body.no-gsap .gs-stagger > * {
 ============================================================ */
 
 /* ---- TABLET: 980px and below ---- */
+
 @media (max-width: 980px) {
   .hamburger { display: flex; }
   .nav-links  { display: none; }
@@ -1767,7 +1741,7 @@ body.no-gsap .gs-stagger > * {
 
   100% {
     left: calc(100% - 13px);
-    opacity: 1;
+    opacity: 0;
   }
 }
 
