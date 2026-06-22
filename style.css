@@ -522,10 +522,11 @@ h3 { line-height: 1.15; }
 
 .hero-copy {
   max-width: 660px;
+  padding: 0 20px;
 }
 
 .hero-heading {
-  font-size: clamp(37px, 5.5vw, 74px);
+  font-size: clamp(37px, 5.2vw, 70px);
   line-height: 0.97;
   margin-bottom: 28px;
 }
