@@ -1597,8 +1597,8 @@ body.no-gsap .gs-stagger > * {
   position: relative;
   z-index: 2;
   display: grid;
-  grid-template-columns: repeat(4, minmax(220px, 1fr));
-  align-items: stretch; /* Taake saare cards ki height hamesha barabar rahe */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: start; /* Taake saare cards ki height hamesha barabar rahe */
   gap: 20px;
   margin-top: 30px;
 }
